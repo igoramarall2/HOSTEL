@@ -36,17 +36,23 @@ senha = ft.TextField(
 )
 
 
-def login(e):
+def page_goto(e):
+    e.page.go("/home")
+
+
+def create_account(e):
+    page_goto(e)
     print(email.value, senha.value)
     auth.create_user_with_email_and_password(email.value, senha.value)
 
 
 def signup(e):
+    page_goto(e)
     print(email.value, senha.value)
     auth.sign_in_with_email_and_password(email.value, senha.value)
 
 
-def __login__():
+def __view__():
     return View(
         "/login",
         [
@@ -59,7 +65,13 @@ def __login__():
             ft.Text("Faça login para continuar", size=18, weight=ft.FontWeight.NORMAL),
             email,
             senha,
-            ft.FilledButton(text="Entrar", on_click=login),
-            ft.TextButton(text="Criar Conta"),
+            ft.FilledButton(
+                text="Entrar",
+                on_click=signup,
+            ),
+            ft.TextButton(
+                text="Criar Conta",
+                on_click=create_account,
+            ),
         ],
     )
