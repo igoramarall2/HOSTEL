@@ -49,7 +49,7 @@ def create_account(e):
 def signup(e):
     page_goto(e)
     print(email.value, senha.value)
-    auth.sign_in_with_email_and_password(email.value, senha.value)
+    # auth.sign_in_with_email_and_password(email.value, senha.value)
 
 
 def __view__():

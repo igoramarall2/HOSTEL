@@ -104,12 +104,110 @@ t = ft.Tabs(
         ),
         ft.Tab(
             tab_content=ft.Icon(ft.icons.SEARCH),
-            content=ft.Text("This is Tab 2"),
+            content=ft.Card(
+                content=ft.Container(
+                    width=500,
+                    content=ft.Column(
+                        [
+                            ft.ListTile(
+                                title=ft.Text("One-line list tile"),
+                            ),
+                            ft.ListTile(
+                                title=ft.Text("One-line dense list tile"), dense=True
+                            ),
+                            ft.ListTile(
+                                leading=ft.Icon(ft.icons.SETTINGS),
+                                title=ft.Text("One-line selected list tile"),
+                                selected=True,
+                            ),
+                            ft.ListTile(
+                                leading=ft.Image(
+                                    src="/icons/icon-192.png", fit="contain"
+                                ),
+                                title=ft.Text("One-line with leading control"),
+                            ),
+                            ft.ListTile(
+                                title=ft.Text("One-line with trailing control"),
+                                trailing=ft.PopupMenuButton(
+                                    icon=ft.icons.MORE_VERT,
+                                    items=[
+                                        ft.PopupMenuItem(text="Item 1"),
+                                        ft.PopupMenuItem(text="Item 2"),
+                                    ],
+                                ),
+                            ),
+                            ft.ListTile(
+                                leading=ft.Icon(ft.icons.ALBUM),
+                                title=ft.Text(
+                                    "One-line with leading and trailing controls"
+                                ),
+                                trailing=ft.PopupMenuButton(
+                                    icon=ft.icons.MORE_VERT,
+                                    items=[
+                                        ft.PopupMenuItem(text="Item 1"),
+                                        ft.PopupMenuItem(text="Item 2"),
+                                    ],
+                                ),
+                            ),
+                            ft.ListTile(
+                                leading=ft.Icon(ft.icons.SNOOZE),
+                                title=ft.Text(
+                                    "Two-line with leading and trailing controls"
+                                ),
+                                subtitle=ft.Text("Here is a second title."),
+                                trailing=ft.PopupMenuButton(
+                                    icon=ft.icons.MORE_VERT,
+                                    items=[
+                                        ft.PopupMenuItem(text="Item 1"),
+                                        ft.PopupMenuItem(text="Item 2"),
+                                    ],
+                                ),
+                            ),
+                        ],
+                        spacing=0,
+                    ),
+                    padding=ft.padding.symmetric(vertical=10),
+                )
+            ),
         ),
         ft.Tab(
             text="Tab 3",
             icon=ft.icons.SETTINGS,
-            content=ft.Text("This is Tab 3"),
+            content=ft.Card(
+                content=ft.Container(
+                    ft.DataTable(
+                        columns=[
+                            ft.DataColumn(ft.Text("First name")),
+                            ft.DataColumn(ft.Text("Last name")),
+                            ft.DataColumn(ft.Text("Age"), numeric=True),
+                        ],
+                        rows=[
+                            ft.DataRow(
+                                cells=[
+                                    ft.DataCell(ft.Text("John")),
+                                    ft.DataCell(ft.Text("Smith")),
+                                    ft.DataCell(ft.Text("43")),
+                                ],
+                            ),
+                            ft.DataRow(
+                                cells=[
+                                    ft.DataCell(ft.Text("Jack")),
+                                    ft.DataCell(ft.Text("Brown")),
+                                    ft.DataCell(ft.Text("19")),
+                                ],
+                            ),
+                            ft.DataRow(
+                                cells=[
+                                    ft.DataCell(ft.Text("Alice")),
+                                    ft.DataCell(ft.Text("Wong")),
+                                    ft.DataCell(ft.Text("25")),
+                                ],
+                            ),
+                        ],
+                    ),
+                    padding=20,
+                ),
+            ),
         ),
     ],
     expand=1,
