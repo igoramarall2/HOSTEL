@@ -72,6 +72,7 @@ def main(page: Page):
     page.go(page.route)
 
     page.views.append(home)
+    page.update()
     page.views.append(login)
     page.update()
 

@@ -28,6 +28,11 @@ firebase = pyrebase.initialize_app(firebaseConfig)
 auth = firebase.auth()
 db = firebase.database()
 
+
+tab_1 = Text("Tab 1", size=30, visible=True)
+tab_2 = Text("Tab 2", size=30, visible=False)
+tab_3 = Text("Tab 3", size=30, visible=False)
+
 nome = ft.TextField(
     label="Nome",
     # hint_text="Seu email para login",
@@ -217,5 +222,8 @@ t = ft.Tabs(
 def __view__():
     return View(
         "/home",
-        [ft.Text("Home", size=50, weight=ft.FontWeight.BOLD), t],
+        [
+            ft.Text("Home", size=50, weight=ft.FontWeight.BOLD),
+            t,
+        ],
     )
