@@ -73,6 +73,27 @@ data = {
 }
 db.push(data)
 
+appBar = ft.AppBar(
+    leading=ft.Icon(ft.icons.PALETTE),
+    leading_width=40,
+    title=ft.Text("AppBar Example"),
+    center_title=False,
+    bgcolor=ft.colors.SURFACE_VARIANT,
+    actions=[
+        ft.IconButton(ft.icons.WB_SUNNY_OUTLINED),
+        ft.IconButton(ft.icons.FILTER_3),
+        ft.PopupMenuButton(
+            items=[
+                ft.PopupMenuItem(text="Item 1"),
+                ft.PopupMenuItem(),  # divider
+                ft.PopupMenuItem(
+                    text="Checked item",
+                    checked=False,  # on_click=check_item_clicked
+                ),
+            ]
+        ),
+    ],
+)
 t = ft.Tabs(
     selected_index=0,
     animation_duration=300,
@@ -217,6 +238,17 @@ t = ft.Tabs(
     ],
     expand=1,
 )
+navigation_bar = ft.NavigationBar(
+    destinations=[
+        ft.NavigationDestination(icon=ft.icons.EXPLORE, label="Explore"),
+        ft.NavigationDestination(icon=ft.icons.COMMUTE, label="Commute"),
+        ft.NavigationDestination(
+            icon=ft.icons.BOOKMARK_BORDER,
+            selected_icon=ft.icons.BOOKMARK,
+            label="Explore",
+        ),
+    ]
+)
 
 
 def __view__():
@@ -225,5 +257,7 @@ def __view__():
         [
             ft.Text("Home", size=50, weight=ft.FontWeight.BOLD),
             t,
+            appBar,
+            navigation_bar,
         ],
     )
